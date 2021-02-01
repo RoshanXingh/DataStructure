@@ -15,6 +15,28 @@ class llist:
             print(temp.val, end = " ")
             temp = temp.next
 
+class operation:
+    def __init__(self, ll):
+        self.ll = ll
+
+    def insert(self, data, pos):
+        temp = self.ll.head
+        i = 0
+        tn = temp.next
+        while(i != int(pos)-1):
+            temp = temp.next
+            tn = temp.next
+            i += 1
+
+        temp.next = node(data)
+        t = temp.next
+        t.next = tn
+
+   # def delete():
+
+    #def search():
+
+    #def update():
         
 
 if(__name__ == "__main__"):
@@ -36,5 +58,14 @@ if(__name__ == "__main__"):
 
 
     ll.disp()
+
+    op = operation(ll)
+
+    data, pos = input("\nenter value and position of element to add:").split()
+    
+    op.insert(data, pos)
+
+    ll.disp()
+    
 
     
