@@ -14,6 +14,7 @@ class llist:
         while(temp):
             print(temp.val, end = " ")
             temp = temp.next
+        print("\n")
 
 class operation:
     def __init__(self, ll):
@@ -35,13 +36,36 @@ class operation:
     def delete(self, value):
         temp = self.ll.head
 
-        while(temp.next.val != value):
+        while(temp.val != value):
             temp = temp.next
 
         temp.next = temp.next.next
+
+    def length(self):
+        temp = self.ll.head
+        flag = 0
+        while(temp):
+            temp = temp.next
+            flag += 1
+        return flag
         
 
-    #def search():
+    def search(self, sr, l):
+        temp = self.ll.head
+        if(temp.val == sr):
+            print("value is found at head")
+
+        else:
+            flag = 1
+            while(temp.val != sr):
+                temp = temp.next
+                flag += 1
+
+            if(flag == l):
+                print("element not found")
+
+            else:
+                print("element is found at {} position".format(flag))
 
     #def update():
         
@@ -71,12 +95,13 @@ if(__name__ == "__main__"):
     data, pos = input("\nenter value and position of element to add:").split()
     
     op.insert(data, pos)
-
     ll.disp()
 
     value = int(input("\nenter value to delete:"))
     op.delete(value)
     ll.disp()
-    
 
+    sr = int(input("enter value to search:"))
+    l = op.length()
+    op.search(sr, l)
     
