@@ -32,7 +32,14 @@ class operation:
         t = temp.next
         t.next = tn
 
-   # def delete():
+    def delete(self, value):
+        temp = self.ll.head
+
+        while(temp.next.val != value):
+            temp = temp.next
+
+        temp.next = temp.next.next
+        
 
     #def search():
 
@@ -65,6 +72,10 @@ if(__name__ == "__main__"):
     
     op.insert(data, pos)
 
+    ll.disp()
+
+    value = int(input("\nenter value to delete:"))
+    op.delete(value)
     ll.disp()
     
 
