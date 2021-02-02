@@ -36,10 +36,16 @@ class operation:
     def delete(self, value):
         temp = self.ll.head
 
-        while(temp.val != value):
+        while(temp.next.val != value):
             temp = temp.next
+            if(temp.next == None):
+                break
 
-        temp.next = temp.next.next
+        t = temp.next
+        if(t.next == None):
+            temp.next = None
+        else:
+            temp.next = temp.next.next
 
     def length(self):
         temp = self.ll.head
