@@ -40,7 +40,6 @@ class operation:
                 ll.head = headval.next
                 headval = None
                 return
-        ll.disp()
 
         while(headval is not None):
             if (int(headval.val) == int(value)):
@@ -71,11 +70,11 @@ class operation:
 
         else:
             flag = 1
-            while(temp.val != sr):
+            while(flag <=l and temp.val != sr):
                 temp = temp.next
                 flag += 1
 
-            if(flag == l):
+            if(flag == l+1):
                 print("element not found")
 
             else:
@@ -108,14 +107,14 @@ if(__name__ == "__main__"):
 
     data, pos = input("\nenter value and position of element to add:").split()
     
-    op.insert(data, pos)
+    op.insert(int(data), int(pos))
     ll.disp()
 
     value = int(input("\nenter value to delete:"))
     op.delete(ll, value)
     ll.disp()
 
-    #sr = int(input("enter value to search:"))
-    #l = op.length()
-    #op.search(sr, l)
+    sr = int(input("enter value to search:"))
+    l = op.length()
+    op.search(sr, l)
     
