@@ -33,19 +33,27 @@ class operation:
         t = temp.next
         t.next = tn
 
-    def delete(self, value):
-        temp = self.ll.head
+    def delete(self, ll, value):
+        headval = ll.head
+        if(headval is not None):
+            if(headval.val == value):
+                ll.head = headval.next
+                headval = None
+                return
+        ll.disp()
 
-        while(temp.next.val != value):
-            temp = temp.next
-            if(temp.next == None):
+        while(headval is not None):
+            if (int(headval.val) == int(value)):
                 break
+            prev = headval
+            headval = headval.next
 
-        t = temp.next
-        if(t.next == None):
-            temp.next = None
-        else:
-            temp.next = temp.next.next
+        if(headval == None):
+            return
+
+        prev.next = headval.next
+
+        headval = None
 
     def length(self):
         temp = self.ll.head
@@ -104,10 +112,10 @@ if(__name__ == "__main__"):
     ll.disp()
 
     value = int(input("\nenter value to delete:"))
-    op.delete(value)
+    op.delete(ll, value)
     ll.disp()
 
-    sr = int(input("enter value to search:"))
-    l = op.length()
-    op.search(sr, l)
+    #sr = int(input("enter value to search:"))
+    #l = op.length()
+    #op.search(sr, l)
     
