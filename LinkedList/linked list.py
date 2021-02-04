@@ -103,18 +103,41 @@ if(__name__ == "__main__"):
 
     ll.disp()
 
-    op = operation(ll)
-
-    data, pos = input("\nenter value and position of element to add:").split()
     
-    op.insert(int(data), int(pos))
-    ll.disp()
+    i = 1
+    while(int(i) == 1):
+        op = operation(ll)
 
-    value = int(input("\nenter value to delete:"))
-    op.delete(ll, value)
-    ll.disp()
+        choise = int(input(""" choose from the following operation to perfore
+1. Insert in linked list
+2. Delete element form linked list
+3. find length of linked list
+4. Search element from linked list
+5. exit
+:"""))
 
-    sr = int(input("enter value to search:"))
-    l = op.length()
-    op.search(sr, l)
+        if (choise == 1):
+            data, pos = input("\nenter value and position of element to add:").split()
+            op.insert(int(data), int(pos))
+            ll.disp()
+
+        elif(choise == 2):
+            value = int(input("\nenter value to delete:"))
+            op.delete(ll, value)
+            ll.disp()
+
+        elif(choise == 3):
+            print("length of linked list is:", op.length())
+
+        elif(choise ==4):
+            sr = int(input("enter value to search:"))
+            l = op.length()
+            op.search(sr, l)
+
+        elif (choise == 5):
+            break
+        else:
+            print("Please enter valid option")
+
+        i = input("enter 1 to repeat, or any other key to exit:")
     
