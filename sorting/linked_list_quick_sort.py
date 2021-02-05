@@ -48,7 +48,7 @@ class sort:
                 else:
                     right.append(item)
 
-            return s.sort_linkedlist(left) + [p] + s.sort_linkedlist(right)
+            return qs.sort_linkedlist(left) + [p] + qs.sort_linkedlist(right)
         
 
 if(__name__ == "__main__"):
@@ -56,7 +56,6 @@ if(__name__ == "__main__"):
     ll = llist()
     h = int(input("enter head of linked list:"))
 
-    val = []
     l = list(map(int, input("enter data of linked list saparated by space:").split()))
 
     ll.make(l, h)
